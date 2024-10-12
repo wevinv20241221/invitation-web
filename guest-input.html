@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>結婚式の招待状</title>
+</head>
+<body>
+    <h1>結婚式の招待状</h1>
+
+    <form action="submit_form.php" method="POST">
+        <!-- 出席か欠席の選択 -->
+        <div class="radio-wrapper">
+            <input type="radio" id="attending" name="attendance" value="attending" required>
+            <label for="attending">ご出席</label>
+        </div>
+        
+        <div class="radio-wrapper">
+            <input type="radio" id="not_attending" name="attendance" value="not_attending" required>
+            <label for="not_attending">ご欠席</label>
+        </div>
+
+        <!-- ゲストタイプ選択 -->
+        <h3>GustType</h3>
+        <label>
+            <input type="radio" name="guest_type" value="groom_side" required>
+            新郎側
+        </label>
+        <label>
+            <input type="radio" name="guest_type" value="bride_side" required>
+            新婦側
+        </label>
+
+        <!-- お名前入力 -->
+        <h3>お名前</h3>
+        <label for="last_name">姓:</label>
+        <input type="text" id="last_name" name="last_name" required>
+
+        <label for="first_name">名:</label>
+        <input type="text" id="first_name" name="first_name" required>
+
+        <!-- ふりがな入力 -->
+        <h3>ふりがな</h3>
+        <label for="last_name_furigana">せい:</label>
+        <input type="text" id="last_name_furigana" name="last_name_furigana" required>
+
+        <label for="first_name_furigana">めい:</label>
+        <input type="text" id="first_name_furigana" name="first_name_furigana" required>
+
+        <!-- ご住所入力 -->
+        <h3>ご住所</h3>
+        <input type="text" id="address" name="address" required>
+
+        <!-- メールアドレス入力 -->
+        <h3>メールアドレス</h3>
+        <input type="email" id="email" name="email" required>
+
+        <!-- アレルギー入力 -->
+        <h3>アレルギーについて</h3>
+        <input type="text" id="allergies" name="allergies">
+
+        <!-- メッセージ入力 -->
+        <h3>新郎新婦へメッセージ</h3>
+        <textarea id="message" name="message" rows="3"></textarea>
+
+        <!-- お連れ様の追加 -->
+        <h3>お連れ様</h3>
+        <label for="guest_name">お名前:</label>
+        <input type="text" id="guest_name" name="guest_name">
+
+        <label for="guest_allergies">アレルギー:</label>
+        <input type="text" id="guest_allergies" name="guest_allergies">
+
+        <!-- 美容・着付け利用 -->
+        <h3>美容・着付けの利用</h3>
+        <label>
+            <input type="radio" name="beauty_service" value="yes">
+            利用する
+        </label>
+        <label>
+            <input type="radio" name="beauty_service" value="no">
+            利用しない
+        </label>
+
+        <!-- 美容・着付け備考 -->
+        <h3>美容・着付けに関する備考</h3>
+        <input type="text" id="beauty_service_note" name="beauty_service_note">
+
+        <!-- その他 -->
+        <h3>その他</h3>
+        <textarea id="other_notes" name="other_notes" rows="3"></textarea>
+
+        <!-- 送信ボタン -->
+        <br><br>
+        <input type="submit" value="回答送信">
+    </form>
+</body>
+</html>
