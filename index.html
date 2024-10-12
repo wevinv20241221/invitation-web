@@ -1,18 +1,331 @@
-
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
-  <title>結婚式の招待状</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web招待状</title>
   <style>
-    body { font-family: Arial, sans-serif; text-align: center; background-color: #f0f0f0; padding: 50px; }
-    .invite { background-color: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      background-color: #fdfdfd;
+      font-family: Arial, sans-serif;
+      padding: 10px;
+      /* スマホでの余白を追加 */
+    }
+
+    .invitation {
+      font-family: 'Pacifico', cursive;
+      font-size: 50px;
+      color: pink;
+      opacity: 0;
+      filter: blur(10px);
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+      animation: fadeInBlur 3s ease forwards;
+    }
+
+    .image-container,
+    .image2-container {
+      margin-top: 20px;
+      opacity: 0;
+      filter: blur(10px);
+      animation: fadeInBlur 3s ease forwards;
+    }
+
+    .image-container {
+      animation-delay: 2s;
+    }
+
+    .image2-container {
+      padding: 20px;
+      background-color: hsl(25, 61%, 75%);
+      border-radius: 10px;
+      text-align: center;
+      animation: fadeInBlur 0s ease forwards;
+    }
+
+    .countdown-container {
+      position: relative;
+      width: 100%;
+      max-width: 350px;
+      background-color: lightgreen;
+      border-radius: 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+      margin-top: 20px;
+    }
+
+    .countdown-text {
+      font-family: 'Pacifico', cursive;
+      font-size: 48px;
+      color: white;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+      margin-bottom: 10px;
+    }
+
+    .countdown-days {
+      font-size: 80px;
+      /* 日数を大きく表示 */
+      font-family: Arial, sans-serif;
+      color: white;
+      margin: 5px 0;
+    }
+
+    .countdown-time {
+      font-size: 30px;
+      font-family: Arial, sans-serif;
+      color: white;
+      margin: 5px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .countdown-time div {
+      margin-bottom: 10px;
+      /* 各時間、分、秒の間隔を広げる */
+    }
+
+    .countdown-subtext {
+      font-size: 16px;
+      color: white;
+      margin-top: 20px;
+      font-family: Arial, sans-serif;
+    }
+
+    /* スマホ対応のためのメディアクエリ */
+    @media (max-width: 600px) {
+      .invitation {
+        font-size: 36px;
+        /* フォントサイズを小さく */
+      }
+
+      .countdown-text {
+        font-size: 36px;
+        /* フォントサイズを小さく */
+      }
+
+      .countdown-days {
+        font-size: 60px;
+        /* 日数のフォントサイズを小さく */
+      }
+
+      .countdown-time {
+        font-size: 24px;
+        /* 残り時間のフォントサイズを小さく */
+      }
+
+      .image-container img,
+      .image2-container img {
+        width: 100%;
+        /* 画像を画面幅に合わせてレスポンシブに */
+        height: auto;
+      }
+
+      .countdown-container {
+        width: 100%;
+        /* コンテナ幅をスマホ画面に合わせる */
+        padding: 10px;
+      }
+    }
+
+    @keyframes fadeInBlur {
+      0% {
+        opacity: 0;
+        filter: blur(10px);
+      }
+
+      50% {
+        opacity: 0.5;
+        filter: blur(5px);
+      }
+
+      100% {
+        opacity: 1;
+        filter: blur(0);
+      }
+    }
+
+    .container {
+      max-width: 600px;
+      width: 100%;
+      border: 2px solid black;
+      padding: 20px;
+      box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 36px;
+      margin: 0;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 24px;
+      margin: 20px 0 10px 0;
+    }
+
+    .date {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .box {
+      border: 2px solid black;
+      padding: 10px;
+      margin: 10px 0;
+      font-size: 22px;
+    }
+
+    .box-time {
+      display: flex;
+      justify-content: space-between;
+      padding: 5px 0;
+    }
+
+    .note {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 20px;
+    }
+
+    /* 手書き風の線と吹き出し */
+    .corner-decor {
+      position: relative;
+      top: -20px;
+      left: -20px;
+      font-size: 40px;
+      transform: rotate(10deg);
+    }
+
+    .message {
+      position: relative;
+      top: -50px;
+      right: -10px;
+      font-size: 16px;
+      background: white;
+      padding: 5px;
+      border-radius: 10px;
+      border: 1px solid black;
+      transform: rotate(-5deg);
+    }
   </style>
 </head>
+
 <body>
-  <div class="invite">
-    <h1>結婚式のご案内</h1>
-    <p>私たちの結婚式にご参加ください。詳細は後日お知らせいたします。</p>
+  <div class="invitation">WEDDING INVITATION</div>
+
+  <div class="image-container">
+    <img src="sample.jpg" alt="Wedding Image" width="400">
   </div>
+
+  <div class="invitation">HIROYA&KOKORO</div>
+
+  <div class="image2-container">
+    <img src="sample2.jpg" alt="Wedding Image" width="400">
+  </div>
+
+  <!-- カウントダウン表示用のコンテナ -->
+  <div class="countdown-container">
+    <div class="countdown-text">Count Down</div>
+    <div id="countdown-days" class="countdown-days"></div> <!-- 日数の表示 -->
+    <div id="countdown-time" class="countdown-time">
+      <div id="hours"></div> <!-- 時間 -->
+      <div id="minutes"></div> <!-- 分 -->
+      <div id="seconds"></div> <!-- 秒 -->
+    </div>
+    <div class="countdown-subtext">to our Wedding</div>
+    <div class="countdown-subtext">2024.12.21 Sat</div>
+  </div>
+
+  <h1>Information</h1>
+  <h2>WEDDING CEREMONY</h2>
+  <h2>挙式・披露宴</h2>
+  <div class="date">2024.12.21 Sat</div>
+  <div class="box">
+    <div class="box-time">
+      <span>挙式</span>
+      <span>15:00</span>
+    </div>
+    <div class="box-time">
+      <span>受付</span>
+      <span>14:30</span>
+    </div>
+  </div>
+  <div class="box">
+    <div class="box-time">
+      <span>披露宴</span>
+      <span>16:00</span>
+    </div>
+    <div class="box-time">
+      <span>受付</span>
+      <span>15:30</span>
+    </div>
+  </div>
+  <div class="note">二次会あれば</div>
+  </div>
+  <h1>ACCESS</h1>
+  <div style="width: 300px; height: 300px;">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13293.509993508838!2d130.3509109!3d33.5955085!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x354193aa8b05f2c1%3A0x74a2c663538db44e!2z44Kq44O844K344Oj44OzJuODquOCvuODvOODiCDjg57jg6rjgr7jg7M!5e0!3m2!1sja!2sjp!4v1726925455384!5m2!1sja!2sjp" width="300" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>  </div>
+    <div class="note">会場:オーシャン&リゾート マリゾン</div>
+    <div class="note">住所:〒814-0001 福岡県福岡市早良区百道浜２丁目９０２−１ 地先</div>
+    <div class="note">TEL:092-823-0888</div>
+    <div class="note">URL:https://www.marizon.jp/</div>
+    <form id="invitation-form">
+    <label for="name">お名前:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">メールアドレス:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="message">メッセージ:</label>
+    <textarea id="message" name="message" required></textarea>
+
+    <button type="submit">送信</button>
+  </form>
+
+  <div id="response"></div>
+
+  <script>
+    function updateCountdown() {
+      const endDate = new Date('2024-12-21T15:00:00');
+      const now = new Date();
+      const timeDiff = endDate - now;
+      if (timeDiff <= 0) {
+        document.getElementById('countdown-days').textContent = 'カウントダウン終了';
+        document.getElementById('hours').textContent = '';
+        document.getElementById('minutes').textContent = '';
+        document.getElementById('seconds').textContent = '';
+        return;
+      }
+      const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+      document.getElementById('countdown-days').textContent = `${days} days`;
+      document.getElementById('hours').textContent = `${hours} hour`;
+      document.getElementById('minutes').textContent = `${minutes} minutes`;
+      document.getElementById('seconds').textContent = `${seconds} seconds`;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
 </body>
+
 </html>
