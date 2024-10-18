@@ -224,80 +224,107 @@
       transform: rotate(-5deg);
     }
 
-    .header {
-      font-size: 24px;
-      font-family: 'Cursive', sans-serif;
-      margin-bottom: 50px;
+    .info-section {
+      position: relative;
+      padding: 50px;
+      text-align: center;
+      color: white;
     }
 
-    .content {
-      font-size: 16px;
-      line-height: 2;
+    .info-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('sample4.jpg');
+      /* 背景画像を設定 */
+      background-size: cover;
+      background-position: center;
+      opacity: 0.6;
+      /* 背景画像だけを半透明に */
+      z-index: -1;
+      /* 背景画像をテキストの後ろに配置 */
+    }
+
+
+    .info-section h1,
+    .info-section h2,
+    .info-section .date {
+      margin: 10px 0;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+      /* 文字に影をつけて読みやすく */
+    }
+
+    .box {
+      background-color: rgba(0, 0, 0, 0.4);
+      /* 背景を半透明にして読みやすく */
+      padding: 20px;
+      border-radius: 10px;
+      display: inline-block;
+    }
+
+    .box-time {
+      display: flex;
+      justify-content: space-between;
+      margin: 10px 0;
     }
   </style>
 </head>
 
 <body>
-  <div class="invitation">WEDDING INVITATION</div>
+  <div class="info-section">
 
-  <div class="image-container">
-    <img src="sample.jpg" alt="Wedding Image" width="400">
-  </div>
+    <div class="invitation">WEDDING INVITATION</div>
 
-  <div class="invitation">HIROYA&KOKORO</div>
-  <div class="header">
-    Message
-  </div>
+    <div class="image-container">
+      <img src="sample.jpg" alt="Wedding Image" width="400">
+    </div>
 
-  <div class="content" style="text-align: center;">
-    皆さまいかがお過ごしでしょうか<br><br>
-    このたび 私たちは結婚式を挙げることになりました<br><br>
-    つきましては ご挨拶をかねて<br>
-    ささやかなパーティーを催したいと思います<br><br>
-    ご多用中 誠に恐縮ではございますが<br>
-    ぜひご出席いただきたくご案内申し上げます<br><br>
-    小泉宏矢<br>
-    小泉こころ
-  </div>
+    <div class="invitation">HIROYA&KOKORO</div>
 
-  <!-- カウントダウン表示用のコンテナ -->
-  <div class="countdown-container">
-    <div class="countdown-text">Count Down</div>
-    <div id="countdown-days" class="countdown-days"></div> <!-- 日数の表示 -->
-    <div id="countdown-time" class="countdown-time">
-      <div id="hours"></div> <!-- 時間 -->
-      <div id="minutes"></div> <!-- 分 -->
-      <div id="seconds"></div> <!-- 秒 -->
+    <div class="image2-container">
+      <img src="sample2.jpg" alt="Wedding Image" width="400">
     </div>
-    <div class="countdown-subtext">to our Wedding</div>
-    <div class="countdown-subtext">2024.12.21 Sat</div>
-  </div>
 
-  <h1>Information</h1>
-  <h2>WEDDING CEREMONY</h2>
-  <h2>挙式・披露宴</h2>
-  <div class="date">2024.12.21 Sat</div>
-  <div class="box">
-    <div class="box-time">
-      <span>挙式</span>
-      <span>15:00</span>
+    <!-- カウントダウン表示用のコンテナ -->
+    <div class="countdown-container">
+      <div class="countdown-text">Count Down</div>
+      <div id="countdown-days" class="countdown-days"></div> <!-- 日数の表示 -->
+      <div id="countdown-time" class="countdown-time">
+        <div id="hours"></div> <!-- 時間 -->
+        <div id="minutes"></div> <!-- 分 -->
+        <div id="seconds"></div> <!-- 秒 -->
+      </div>
+      <div class="countdown-subtext">to our Wedding</div>
+      <div class="countdown-subtext">2024.12.21 Sat</div>
     </div>
-    <div class="box-time">
-      <span>受付</span>
-      <span>14:30</span>
+
+    <h1>Information</h1>
+    <h2>WEDDING CEREMONY</h2>
+    <h2>挙式・披露宴</h2>
+    <div class="date">2024.12.21 Sat</div>
+    <div class="box">
+      <div class="box-time">
+        <span>挙式</span>
+        <span>15:00</span>
+      </div>
+      <div class="box-time">
+        <span>受付</span>
+        <span>14:30</span>
+      </div>
     </div>
-  </div>
-  <div class="box">
-    <div class="box-time">
-      <span>披露宴</span>
-      <span>16:00</span>
+    <div class="box">
+      <div class="box-time">
+        <span>披露宴</span>
+        <span>16:00</span>
+      </div>
+      <div class="box-time">
+        <span>受付</span>
+        <span>15:30</span>
+      </div>
     </div>
-    <div class="box-time">
-      <span>受付</span>
-      <span>15:30</span>
-    </div>
-  </div>
-  </div>
   <h1>ACCESS</h1>
   <div style="width: 300px; height: 300px;">
     <iframe
@@ -319,6 +346,7 @@
   <div class="guest-input">
     <a href="guest-input.html">ゲスト様入力項目</a>
   </div>
+</div>
 
 
   <div id="response"></div>
