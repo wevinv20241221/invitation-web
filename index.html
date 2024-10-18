@@ -54,6 +54,8 @@
       position: relative;
       width: 100%;
       max-width: 350px;
+      background-image: url('sample4.jpg');
+      opacity: 0.8;
       background-color: lightgreen;
       border-radius: 15px;
       display: flex;
@@ -224,6 +226,19 @@
       transform: rotate(-5deg);
     }
 
+    .header {
+      font-size: 24px;
+      font-family: 'Cursive', sans-serif;
+      margin-bottom: 50px;
+      color: black;
+    }
+
+    .content {
+      font-size: 16px;
+      line-height: 2;
+      color: black;
+    }
+
     .info-section {
       position: relative;
       padding: 50px;
@@ -238,11 +253,11 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-image: url('sample4.jpg');
+      background-image: url('sample5.jpg');
       /* 背景画像を設定 */
       background-size: cover;
       background-position: center;
-      opacity: 0.6;
+      opacity: 0.4;
       /* 背景画像だけを半透明に */
       z-index: -1;
       /* 背景画像をテキストの後ろに配置 */
@@ -276,16 +291,27 @@
 <body>
   <div class="info-section">
 
-    <div class="invitation">WEDDING INVITATION</div>
-
+    <div class="invitation" style="text-align: center;">WEDDING INVITATION</div>
+    <br><br><br><br>
     <div class="image-container">
       <img src="sample.jpg" alt="Wedding Image" width="400">
     </div>
+    <br><br>
+    <div class="invitation" style="text-align: center;">HIROYA&KOKORO</div>
+    <br><br><br><br><br><br>
+    <div class="header">
+      Message
+    </div>
 
-    <div class="invitation">HIROYA&KOKORO</div>
-
-    <div class="image2-container">
-      <img src="sample2.jpg" alt="Wedding Image" width="400">
+    <div class="content" style="text-align: center;">
+      皆さまいかがお過ごしでしょうか<br><br>
+      このたび 私たちは結婚式を挙げることになりました<br><br>
+      つきましては ご挨拶をかねて<br>
+      ささやかなパーティーを催したいと思います<br><br>
+      ご多用中 誠に恐縮ではございますが<br>
+      ぜひご出席いただきたくご案内申し上げます<br><br>
+      小泉　宏矢<br>
+      　　　 こころ
     </div>
 
     <!-- カウントダウン表示用のコンテナ -->
@@ -325,29 +351,28 @@
         <span>15:30</span>
       </div>
     </div>
-  <h1>ACCESS</h1>
-  <div style="width: 300px; height: 300px;">
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13293.509993508838!2d130.3509109!3d33.5955085!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x354193aa8b05f2c1%3A0x74a2c663538db44e!2z44Kq44O844K344Oj44OzJuODquOCvuODvOODiCDjg57jg6rjgr7jg7M!5e0!3m2!1sja!2sjp!4v1726925455384!5m2!1sja!2sjp"
-      width="300" height="300" style="border:0;" allowfullscreen="" loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"></iframe>
-  </div>
-  <div class="note">会場:オーシャン&リゾート マリゾン</div>
-  <div class="note">住所:〒814-0001 福岡県福岡市早良区百道浜２丁目９０２−１ 地先</div>
-  <div class="note">TEL:092-823-0888</div>
-  <div class="note">URL:https://www.marizon.jp/</div>
-  <h1>PRESENCE OR ABSENCE</h1>
-  <div class="content">
-    <p>お手数ですが、下記お日にちに<br>出欠情報の入力をお願い致します。</p>
-    <p>2024年11月1日（月）</p>
-    <p>期日までのご連絡が難しい場合には<br>ご一報いただけますと幸いです。</p>
-  </div>
+    <h1>ACCESS</h1>
+    <div style="width: 300px; height: 300px;">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13293.509993508838!2d130.3509109!3d33.5955085!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x354193aa8b05f2c1%3A0x74a2c663538db44e!2z44Kq44O844K344Oj44OzJuODquOCvuODvOODiCDjg57jg6rjgr7jg7M!5e0!3m2!1sja!2sjp!4v1726925455384!5m2!1sja!2sjp"
+        width="300" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div class="note">会場:オーシャン&リゾート マリゾン</div>
+    <div class="note">住所:〒814-0001 福岡県福岡市早良区百道浜２丁目９０２−１ 地先</div>
+    <div class="note">TEL:092-823-0888</div>
+    <div class="note">URL:https://www.marizon.jp/</div>
+    <h1>PRESENCE OR ABSENCE</h1>
+    <div class="content">
+      <p>お手数ですが、下記お日にちに<br>出欠情報の入力をお願い致します。</p>
+      <p>2024年11月1日（月）</p>
+      <p>期日までのご連絡が難しい場合には<br>ご一報いただけますと幸いです。</p>
+    </div>
 
-  <div class="guest-input">
-    <a href="guest-input.html">ゲスト様入力項目</a>
+    <div class="guest-input">
+      <a href="guest-input.html">ゲスト様入力項目</a>
+    </div>
   </div>
-</div>
-
 
   <div id="response"></div>
 
