@@ -128,9 +128,20 @@
       }
 
       .countdown-container {
-        width: 100%;
-        /* コンテナ幅をスマホ画面に合わせる */
-        padding: 10px;
+        border: 2px solid #000;
+        /* 枠線の設定 (2pxの太さで黒色) */
+        padding: 20px;
+        /* 枠内の余白 */
+        margin: 10px;
+        /* 外側の余白 */
+        border-radius: 10px;
+        /* 角を丸くする */
+        text-align: center;
+        /* テキストを中央揃え */
+        width: auto;
+        /* 要素の幅を中身に合わせる */
+        background-color: rgba(211, 211, 211, 0.7);
+        /* 薄いグレーに透過効果を設定 (0.7のAlphaで70%不透明) */
       }
     }
 
@@ -229,6 +240,22 @@
       font-size: 16px;
       line-height: 2;
       color: black;
+      padding: 20px;
+      /* コンテンツ内の余白 */
+      margin: 20px;
+      /* 外側の余白 */
+      border: 2px solid #ccc;
+      /* 枠線 (薄いグレー) */
+      border-radius: 8px;
+      /* 角を丸くする */
+      background-color: white;
+      /* 背景色を白に */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      /* 影の設定 */
+      max-width: 600px;
+      /* 横幅を最大600pxに制限 */
+      margin: 20px auto;
+      /* 中央寄せ */
     }
 
 
@@ -253,7 +280,7 @@
       /* 背景画像を設定 */
       background-size: cover;
       background-position: center;
-      opacity: 0.6;
+      opacity: 0.4;
       /* 背景画像だけを半透明に */
       z-index: -1;
       /* 背景画像をテキストの後ろに配置 */
@@ -281,6 +308,43 @@
       justify-content: space-between;
       margin: 10px 0;
     }
+
+    .button {
+      display: inline-block;
+      padding: 12px 24px;
+      /* ボタンの内側の余白 */
+      font-size: 16px;
+      font-weight: bold;
+      color: white;
+      /* テキストの色 */
+      background-color: #4CAF50;
+      /* ボタンの背景色（おしゃれなグリーン） */
+      text-align: center;
+      text-decoration: none;
+      /* 下線を消す */
+      border-radius: 25px;
+      /* 角を丸くする */
+      box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+      /* 影をつけることで立体感を出す */
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      /* ホバー時のアニメーション */
+    }
+
+    .button:hover {
+      background-color: #45a049;
+      /* ホバー時に色を少し変える */
+      box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.2);
+      /* ホバー時に影を強調 */
+    }
+
+    .button:active {
+      background-color: #3e8e41;
+      /* クリック時にさらに色を暗くする */
+      box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+      /* クリック時に影を少し縮小 */
+      transform: translateY(2px);
+      /* クリック時に少し押し込まれるような動き */
+    }
   </style>
 </head>
 
@@ -295,81 +359,72 @@
     <br><br>
     <div class="invitation" style="text-align: center;">HIROYA&KOKORO</div>
     <br><br><br><br><br><br>
-    <div class="header">
-      Message
 
-      <div class="content" style="text-align: center;">
-        皆さまいかがお過ごしでしょうか<br><br>
-        このたび 私たちは結婚式を挙げることになりました<br><br>
-        つきましては ご挨拶をかねて<br>
-        ささやかなパーティーを催したいと思います<br><br>
-        ご多用中 誠に恐縮ではございますが<br>
-        ぜひご出席いただきたくご案内申し上げます<br><br>
-        小泉　宏矢<br>
-        　　　 こころ
-      </div>
-
-      <!-- カウントダウン表示用のコンテナ -->
-      <div class="hidden countdown-container">
-        <div class="countdown-text">Count Down</div>
-        <div id="countdown-days" class="countdown-days"></div> <!-- 日数の表示 -->
-        <div id="countdown-time" class="countdown-time">
-          <div id="hours"></div> <!-- 時間 -->
-          <div id="minutes"></div> <!-- 分 -->
-          <div id="seconds"></div> <!-- 秒 -->
-        </div>
-        <div class="countdown-subtext">to our Wedding</div>
-        <div class="countdown-subtext">2024.12.21 Sat</div>
-      </div>
-
-      <h1>Information</h1>
-      <h2>WEDDING CEREMONY</h2>
-      <h2>挙式・披露宴</h2>
-      <div class="date">2024.12.21 Sat</div>
-      <div class="box">
-        <div class="box-time">
-          <span>挙式</span>
-          <span>15:00</span>
-        </div>
-        <div class="box-time">
-          <span>受付</span>
-          <span>14:30</span>
-        </div>
-      </div>
-      <div class="box">
-        <div class="box-time">
-          <span>披露宴</span>
-          <span>16:00</span>
-        </div>
-        <div class="box-time">
-          <span>受付</span>
-          <span>15:30</span>
-        </div>
-      </div>
-      <h1>ACCESS</h1>
-      <div style="width: 300px; height: 300px;">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13293.509993508838!2d130.3509109!3d33.5955085!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x354193aa8b05f2c1%3A0x74a2c663538db44e!2z44Kq44O844K344Oj44OzJuODquOCvuODvOODiCDjg57jg6rjgr7jg7M!5e0!3m2!1sja!2sjp!4v1726925455384!5m2!1sja!2sjp"
-          width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div>
-      <div class="note">会場:オーシャン&リゾート マリゾン</div>
-      <div class="note">住所:〒814-0001 福岡県福岡市早良区百道浜２丁目９０２−１ 地先</div>
-      <div class="note">TEL:092-823-0888</div>
-      <div class="note">URL:https://www.marizon.jp/</div>
-      <h1>PRESENCE OR ABSENCE</h1>
-      <div class="content">
-        <p>お手数ですが、下記お日にちに<br>出欠情報の入力をお願い致します。</p>
-        <p>2024年11月1日（月）</p>
-        <p>期日までのご連絡が難しい場合には<br>ご一報いただけますと幸いです。</p>
-      </div>
-
-      <div class="guest-input">
-        <a href="https://forms.gle/kTgFNKAYLXP86XMN8">ゲスト様入力項目</a>
-      </div>
-
-      <div id="response"></div>
+    <div class="content2">
+      <img src="sample7.jpg" alt="Wedding Image" width="400">
     </div>
+
+    <!-- カウントダウン表示用のコンテナ -->
+    <div class="hidden countdown-container">
+      <div class="countdown-text">Count Down</div>
+      <div id="countdown-days" class="countdown-days"></div> <!-- 日数の表示 -->
+      <div id="countdown-time" class="countdown-time">
+        <div id="hours"></div> <!-- 時間 -->
+        <div id="minutes"></div> <!-- 分 -->
+        <div id="seconds"></div> <!-- 秒 -->
+      </div>
+      <div class="countdown-subtext">to our Wedding</div>
+      <div class="countdown-subtext">2024.12.21 Sat</div>
+    </div>
+
+    <h1>Information</h1>
+    <h2>WEDDING CEREMONY</h2>
+    <h2>挙式・披露宴</h2>
+    <div class="date">2024.12.21 Sat</div>
+    <div class="box">
+      <div class="box-time">
+        <span>挙式</span>
+        <span>15:00</span>
+      </div>
+      <div class="box-time">
+        <span>受付</span>
+        <span>14:00</span>
+      </div>
+    </div>
+    <div class="box">
+      <div class="box-time">
+        <span>披露宴</span>
+        <span>16:00</span>
+      </div>
+      <div class="box-time">
+        <span>受付</span>
+        <span>15:30</span>
+      </div>
+    </div>
+    <h1>ACCESS</h1>
+    <div style="width: 300px; height: 300px;">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13293.509993508838!2d130.3509109!3d33.5955085!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x354193aa8b05f2c1%3A0x74a2c663538db44e!2z44Kq44O844K344Oj44OzJuODquOCvuODvOODiCDjg57jg6rjgr7jg7M!5e0!3m2!1sja!2sjp!4v1726925455384!5m2!1sja!2sjp"
+        width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div class="note">会場:オーシャン&リゾート マリゾン</div>
+    <div class="note">住所:〒814-0001 福岡県福岡市早良区百道浜２丁目９０２−１ 地先</div>
+    <div class="note">TEL:092-823-0888</div>
+    <div class="note">URL:https://www.marizon.jp/</div>
+    <h1>PRESENCE OR ABSENCE</h1>
+    <div class="content-2">
+      <p>お手数ですが、下記お日にちまでに<br>出欠情報の入力をお願い致します。</p>
+      <p>2024年11月20日(水)</p>
+      <p>期日までのご連絡が難しい場合には<br>ご一報いただけますと幸いです。</p>
+    </div>
+
+    <div class="guest-input">
+      <a href="https://forms.gle/kTgFNKAYLXP86XMN8" class="button">ゲスト様入力はこちら</a>
+    </div>
+
+    <div id="response"></div>
+  </div>
 
   </div>
 
@@ -404,7 +459,7 @@
       const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
 
       document.getElementById('countdown-days').textContent = `${days} days`;
-      document.getElementById('hours').textContent = `${hours} hour`;
+      document.getElementById('hours').textContent = `${hours} hours`;
       document.getElementById('minutes').textContent = `${minutes} minutes`;
       document.getElementById('seconds').textContent = `${seconds} seconds`;
     }
