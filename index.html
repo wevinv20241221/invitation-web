@@ -69,7 +69,7 @@
     .countdown-text {
       font-family: 'Pacifico', cursive;
       font-size: 48px;
-      color: black;
+      color: rgb(255, 215, 0);
       text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
       margin-bottom: 10px;
     }
@@ -82,20 +82,7 @@
       margin: 5px 0;
     }
 
-    .countdown-time {
-      font-size: 30px;
-      font-family: Arial, sans-serif;
-      color: black;
-      margin: 5px 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
 
-    .countdown-time div {
-      margin-bottom: 10px;
-      /* 各時間、分、秒の間隔を広げる */
-    }
 
     .countdown-subtext {
       font-size: 20px;
@@ -125,6 +112,10 @@
         font-size: 24px;
         /* 残り時間のフォントサイズを小さく */
       }
+      .countdown-time2 {
+        font-size: 40px;
+        /* 残り時間のフォントサイズを小さく */
+      }
 
       .image-container img,
       .image2-container img {
@@ -134,8 +125,6 @@
       }
 
       .countdown-container {
-        border: 2px solid #000;
-        /* 枠線の設定 (2pxの太さで黒色) */
         padding: 20px;
         /* 枠内の余白 */
         margin: 10px;
@@ -146,7 +135,7 @@
         /* テキストを中央揃え */
         width: auto;
         /* 要素の幅を中身に合わせる */
-        background-color: rgba(211, 211, 211, 0.7);
+        background-color: rgba(250, 249, 249, 0.7);
         /* 薄いグレーに透過効果を設定 (0.7のAlphaで70%不透明) */
       }
     }
@@ -363,6 +352,25 @@
       box-shadow: 6px 6px 6px rgba(130, 124, 124, 0.7);
       /* 影 */
     }
+
+    #countdown-time {
+      display: flex;
+      /* Flexboxを使用 */
+      align-items: center;
+      /* 縦方向の中央揃え */
+    }
+
+    #countdown-time div {
+      margin-left:50px;
+      /* 要素の間にスペースを追加 */
+      font-size: 40px;
+      /* フォントサイズを調整 */
+    }
+
+    /* 最後の要素のマージンをなくす */
+    #countdown-time div:last-child {
+      margin-right: 0;
+    }
   </style>
 </head>
 
@@ -387,14 +395,20 @@
     <!-- カウントダウン表示用のコンテナ -->
     <div class="hidden countdown-container">
       <div class="countdown-text">Count Down</div>
-      <div id="countdown-days" class="countdown-days"></div> <!-- 日数の表示 -->
-      <div id="countdown-time" class="countdown-time">
-        <div id="hours"></div> <!-- 時間 -->
-        <div id="minutes"></div> <!-- 分 -->
-        <div id="seconds"></div> <!-- 秒 -->
+      <div id="countdown-days" class="countdown-days" style="color: #000; font-size: 60px; font-family: 'Times New Roman', Times, serif; font-weight: bold;"></div> <!-- 日数の表示 -->
+      <div style="color: #000; font-size: 24px; font-family: 'Times New Roman', Times, serif;">DAYS</div> <!-- 日数の表示 -->
+      <div id="countdown-time" class="countdown-time2" style="text-align: center;">
+        <div id="hours" style="color: #000; font-size: 50px; font-family: 'Times New Roman', Times, serif; font-weight: bold;">00</div> <!-- 時間 -->
+        <div id="minutes" style="color: #000; font-size: 50px; font-family: 'Times New Roman', Times, serif; font-weight: bold;">00</div> <!-- 分 -->
+        <div id="seconds" style="color: #000; font-size: 50px; font-family: 'Times New Roman', Times, serif; font-weight: bold;">00</div> <!-- 秒 -->
       </div>
-      <div class="countdown-subtext" style="font-size: 12px;">to our Wedding</div>
-      <div class="countdown-subtext" style="font-size: 12px;">2024.12.21 Sat</div>
+      <div id="countdown-time" class="countdown-time" style="text-align: center;">
+        <div style="color: #000; font-size: 14px; font-family: 'Times New Roman', Times, serif;">HOURS</div> <!-- 日数の表示 -->
+        <div style="color: #000; font-size: 14px; font-family: 'Times New Roman', Times, serif;">MINUTES</div> <!-- 日数の表示 -->
+        <div style="color: #000; font-size: 14px; font-family: 'Times New Roman', Times, serif;">DAYS</div> <!-- 日数の表示 -->
+      </div>
+      <div class="countdown-subtext" style="font-size: 22px; font-family: 'Times New Roman', Times, serif;">to our Wedding</div>
+      <div class="countdown-subtext" style="font-size: 34px; font-family: 'Times New Roman', Times, serif;">2024.12.21 Sat</div>
     </div>
     <br><br>
     <br><br>
@@ -472,10 +486,10 @@
       const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
 
-      document.getElementById('countdown-days').textContent = `${days} days`;
-      document.getElementById('hours').textContent = `${hours} hours`;
-      document.getElementById('minutes').textContent = `${minutes} minutes`;
-      document.getElementById('seconds').textContent = `${seconds} seconds`;
+      document.getElementById('countdown-days').textContent = `${days}`;
+      document.getElementById('hours').textContent = `${hours}`;
+      document.getElementById('minutes').textContent = `${minutes}`;
+      document.getElementById('seconds').textContent = `${seconds}`;
     }
 
     setInterval(updateCountdown, 1000);
