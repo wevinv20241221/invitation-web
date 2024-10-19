@@ -8,6 +8,11 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
+    html {
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+    }
+
     .hidden {
       opacity: 0;
       transition: opacity 1s ease-out;
@@ -269,6 +274,7 @@
       color: white;
       /* 高さを設定 */
       overflow: hidden;
+      overflow-x: hidden;
     }
 
     .info-section::before {
@@ -473,9 +479,6 @@
 
     setInterval(updateCountdown, 1000);
     updateCountdown();
-    document.addEventListener('touchmove', function (event) {
-      event.preventDefault();
-    }, { passive: false });
   </script>
 </body>
 
