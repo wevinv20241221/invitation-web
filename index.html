@@ -26,6 +26,7 @@
       background-color: #fdfdfd;
       font-family: Arial, sans-serif;
       padding: 10px;
+      overflow-x: hidden;
       /* スマホでの余白を追加 */
     }
 
@@ -169,6 +170,7 @@
       padding: 20px;
       box-shadow: 5px 5px 0px rgba(0, 0, 0, 0);
       position: relative;
+      overflow-x: hidden;
     }
 
     h1 {
@@ -345,9 +347,11 @@
       transform: translateY(2px);
       /* クリック時に少し押し込まれるような動き */
     }
+
     .content2 img {
-    box-shadow: 6px 6px 6px rgba(130, 124, 124, 0.7); /* 影 */
-}
+      box-shadow: 6px 6px 6px rgba(130, 124, 124, 0.7);
+      /* 影 */
+    }
   </style>
 </head>
 
@@ -469,6 +473,9 @@
 
     setInterval(updateCountdown, 1000);
     updateCountdown();
+    document.addEventListener('touchmove', function (event) {
+      event.preventDefault();
+    }, { passive: false });
   </script>
 </body>
 
