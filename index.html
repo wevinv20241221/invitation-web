@@ -137,6 +137,7 @@
         /* 要素の幅を中身に合わせる */
         background-color: rgba(250, 249, 249, 0.7);
         /* 薄いグレーに透過効果を設定 (0.7のAlphaで70%不透明) */
+        justify-content: center;
       }
     }
 
@@ -377,19 +378,20 @@
       /* Flexboxを使用 */
       align-items: center;
       /* 縦方向の中央揃え */
+      justify-content: center;
+
     }
 
     #countdown-time div {
-      margin-left:50px;
+      margin-left:24px;
+      margin-right:24px;
       /* 要素の間にスペースを追加 */
       font-size: 40px;
+      width: 50px;
       /* フォントサイズを調整 */
     }
 
     /* 最後の要素のマージンをなくす */
-    #countdown-time div:last-child {
-      margin-right: 0;
-    }
   </style>
 </head>
 
@@ -424,7 +426,7 @@
       <div id="countdown-time" class="countdown-time" style="text-align: center;">
         <div style="color: #000; font-size: 14px; font-family: 'Times New Roman', Times, serif;">HOURS</div> <!-- 日数の表示 -->
         <div style="color: #000; font-size: 14px; font-family: 'Times New Roman', Times, serif;">MINUTES</div> <!-- 日数の表示 -->
-        <div style="color: #000; font-size: 14px; font-family: 'Times New Roman', Times, serif;">DAYS</div> <!-- 日数の表示 -->
+        <div style="color: #000; font-size: 14px; font-family: 'Times New Roman', Times, serif;">SECONDS</div> <!-- 日数の表示 -->
       </div>
       <div class="countdown-subtext" style="font-size: 22px; font-family: 'Times New Roman', Times, serif;">to our Wedding</div>
       <div class="countdown-subtext" style="font-size: 34px; font-family: 'Times New Roman', Times, serif;">2024.12.21 Sat</div>
